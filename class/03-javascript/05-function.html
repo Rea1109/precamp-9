@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>인증번호 전송</title>
+    <script>
+        const getToken = ()=>{
+            alert("인증번호가 발송되었습니다.")
+            const token = String(Math.floor(Math.random()*1000000)).padStart(6,"0")
+            document.getElementById("token").value = token
+        }
+
+        // function getToken() {
+        //     const token = String(Math.floor(Math.random()*1000000)).padStart(6,"0")
+        //     document.getElementById("auth").innerText = token
+        // }
+    </script>
+</head>
+<body>
+    <span>
+        <input id="token" readonly>
+        <button onclick="getToken()">인증번호전송</button>
+    </span>
+</body>
+</html>

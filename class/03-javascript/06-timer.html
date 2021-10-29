@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>타이머</title>
+    <script>
+        let isInterVal = false
+
+        const getToken = ()=>{
+
+            alert("인증번호가 발송되었습니다.")
+            const token = String(Math.floor(Math.random()*1000000)).padStart(6,"0")
+            document.getElementById("token").value = token
+            timer()
+            document.getElementById("send").setAttribute("disabled",true)
+
+        }
+
+        const timer = ()=>{
+            
+            let time = 30;
+
+            const interVal = setInterval(()=>{
+                
+                const min = String(Math.floor(time / 60)).padStart(2,"0")
+                const sec = String(time % 60).padStart(2,"0")
+                if(time >= 0){
+                    document.getElementById("time").innerText = min+":"+sec
+                    time = time-1
+                }
+            },1000)
+
+            const setTime = setTimeout(()=>{
+                document.getElementById("time").innerText = " "
+                document.getElementById("send").removeAttribute("disabled")
+                document.getElementById("send").innerText = "재전송"
+            },(time+1)*1000) 
+        }
+
+    </script>
+</head>
+<body>
+    <span>
+        <input id="token" readonly>
+        <button id="send" onclick="getToken()">인증번호전송</button>
+        <span id="time" style="color: tomato;"></span>
+    </span>
+</body>
+</html>

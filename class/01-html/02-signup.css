@@ -1,0 +1,14 @@
+/* 
+선택자 우선순위  tag < class < id 
+css default content-box 
+border-box를 고정해라
+*/
+input {
+    background-color: yellow;
+}
+.aa {
+    background-color: skyblue;
+}
+#zzz {
+    background-color: orange;
+}
